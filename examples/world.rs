@@ -1,5 +1,5 @@
 use bevy::{prelude::*, window::PrimaryWindow};
-
+use bevy::color::palettes::css::ORANGE;
 use bevy_mouse_tracking_plugin::{
     mouse_pos::InitWorldTracking, prelude::*, MainCamera, MousePos, MousePosWorld,
 };
@@ -15,7 +15,7 @@ fn main() {
         .add_plugins((DefaultPlugins, MousePosPlugin))
         .insert_resource(ClearColor(Color::BLACK))
         .add_systems(Startup, setup)
-        .add_systems(Update, bevy::window::close_on_esc)
+        //.add_systems(Update, bevy::window::close_on_esc)
         .add_systems(Update, (pan_camera, run))
         .run();
 }
@@ -54,7 +54,7 @@ fn setup(
     let style = TextStyle {
         font,
         font_size: 24.0,
-        color: Color::ORANGE,
+        color: ORANGE.into(),
     };
     let (win_width, win_height) = (window.width(), window.height());
     let (hud_x, hud_y) = (win_width / 2. * -1., win_height / 2.);

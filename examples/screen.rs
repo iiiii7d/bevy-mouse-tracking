@@ -15,7 +15,7 @@ fn main() {
         .add_plugins((DefaultPlugins, MousePosPlugin, MouseMotionPlugin))
         .insert_resource(ClearColor(Color::BLACK))
         .add_systems(Startup, setup)
-        .add_systems(Update, bevy::window::close_on_esc)
+        //.add_systems(Update, bevy::window::close_on_esc)
         .add_systems(Update, run)
         .run();
 }
